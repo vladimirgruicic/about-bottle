@@ -1,0 +1,26 @@
+/* zlatan.css */
+
+body {
+    display: grid;
+    align-items: baseline;
+    justify-content: baseline;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(42, 165, 89, 0.37);
+}
+
+h1 {
+    color: antiquewhite;
+}
+
+p {
+    color: rgb(237, 100, 184);
+    line-height: 0cqi;
+}
+
+.container {
+    max-width: fit-content;
+    margin: auto;
+    padding: 20cap;
+}

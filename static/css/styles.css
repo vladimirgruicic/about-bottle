@@ -1,0 +1,22 @@
+/* styles.css */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+li {
+  display: inline;
+}
+
+li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+li a:hover {
+  background-color: #ddd;
+}

@@ -4,10 +4,8 @@ app = Bottle()
 
 @app.route('/')
 def index():
-    return """
-        Hello my man DevOps! Howdy!!!
-        This is our road to success with Python'
-        """
+    return template('views/index.tpl')
+
 @app.route('/about')
 def about():
     return """
@@ -15,9 +13,8 @@ def about():
     """
 @app.route('/zlatan')
 def zlatan():
-    return """
-        This is tribute to Zlatan Emperor Of Football Ibrahimovic. I saw his farewell on Milan stadium and it was beautuful.
-    """
+    return template('views/zlatan.tpl')
+
 @app.route('/api/data')
 def api_data():
     data = {'name': 'John', 'Age': 5,
@@ -30,8 +27,15 @@ def api_data():
 
 @app.route('/hello/<name>')
 def hello_name(name):
-    return template('hello_template', name=name)
+    name = "Vladimir"
+    return template('views/hello_template', name=name)
 
+# Route for the dropdown page
+@app.route('/dropdown')
+def dropdown():
+    return template('dropdown_template')
+
+# Route for serving static files
 @app.route('/static/<filepath:path>')
 def serve_static(filepath):
     return static_file(filepath, root='./static')
