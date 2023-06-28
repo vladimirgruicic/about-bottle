@@ -1,4 +1,5 @@
 from bottle import Bottle, run, template, static_file
+from models import User
 
 app = Bottle()
 
@@ -8,9 +9,12 @@ def index():
 
 @app.route('/about')
 def about():
-    return """
-        This is About page. It is not fany as the one on About You or some others, but it is a start.
-    """
+    return template('about')
+
+@app.route('/contact')
+def contact():
+    return template('contact')
+
 @app.route('/zlatan')
 def zlatan():
     return template('views/zlatan.tpl')
