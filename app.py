@@ -1,11 +1,28 @@
-from bottle import Bottle, run, template, static_file
+from bottle import Bottle, run, template, static_file, request
 from models import User
+import sqlite3
 
 app = Bottle()
 
-@app.route('/')
+@app.route('/', method=['GET', 'POST'])
 def index():
-    return template('views/index.tpl')
+    if request.method == 'POST':
+        # Retrieve the username and email from the form
+        username = request.forms.get('username')
+        email = request.forms.get('email')
+
+        # Insert the data into the database
+        conn = sqlite3.connect('db/aboutbottle.db')
+        cursor = conn.cursor()
+        
+        cursor.execute("INSERT INTO users (username, email) VALUES (?, ?)", (username, email))
+
+        conn.commit()
+        conn.close()
+
+        # Redirect to the home page with a success message
+        return template('home', success_message='Data inserted sucessfully!')
+    return template('home')
 
 @app.route('/about')
 def about():
