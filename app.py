@@ -22,7 +22,7 @@ def home():
         
         success_message = f"User {username} has been added successfully!"
         # Redirect to the home page with a success message
-        return template('home', success_message=success_message)
+        return template('views/home.tpl', success_message=success_message)
     else:
         return template('home', success_message=None)
 
