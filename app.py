@@ -5,7 +5,7 @@ import sqlite3
 app = Bottle()
 
 @app.route('/', method=['GET', 'POST'])
-def index():
+def home():
     if request.method == 'POST':
         # Retrieve the username and email from the form
         username = request.forms.get('username')
@@ -19,10 +19,12 @@ def index():
 
         conn.commit()
         conn.close()
-
+        
+        success_message = f"User {username} has been added successfully!"
         # Redirect to the home page with a success message
-        return template('home', success_message='Data inserted sucessfully!')
-    return template('home')
+        return template('home', success_message=success_message)
+    else:
+        return template('home', success_message=None)
 
 @app.route('/about')
 def about():
