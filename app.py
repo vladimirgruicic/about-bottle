@@ -38,6 +38,11 @@ def contact():
 def zlatan():
     return template('views/zlatan.tpl')
 
+# Route for club history
+@app.route("/history")
+def history():
+    return template('views/history.tpl')
+
 @app.route('/api/data')
 def api_data():
     data = {'name': 'John', 'Age': 5,

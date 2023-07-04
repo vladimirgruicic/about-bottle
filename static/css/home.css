@@ -2,15 +2,23 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url("/static/images/armada-rijeka.jpg");
+  background-image: url("/static/images/armada-rijeka3.jpg");
   background-repeat: no-repeat;
-  background-size:contain;
-  background-position: left;
+  background-size:cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 400px;
-  margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
@@ -19,6 +27,7 @@ body {
 
 h1 {
   text-align: center;
+  color: blue;
 }
 
 form {
@@ -58,4 +67,42 @@ p.success-message {
   color: #3c763d;
   border: 1px solid #d6e9c6;
   border-radius: 4px;
+}
+
+.dropdown {
+  position: inherit;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color:burlywood;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #544caf;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color:#3c763d;
+}
+
+.show {
+  display: block;
 }
